@@ -116,10 +116,10 @@ html {
 
 /* Hero Section */
 .hero {
-    min-height: 90vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #000 0%, #764ba2 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -163,7 +163,7 @@ html {
 }
 
 .highlight {
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+    background: linear-gradient(135deg, #6e338b, #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -232,13 +232,52 @@ html {
     transform: translateY(-3px);
 }
 
+/* Hero Image */
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Hero Image with Pulse */
+.hero-image {
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Pulse ring */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 3px solid rgba(240, 147, 251, 0.6);
+    animation: heroPulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease 0.3s backwards;
+    position: relative;
+    z-index: 1;
+}
 /* Section Styles */
 section {
     padding: 5rem 0;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
@@ -731,6 +770,17 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
+
+/* Hero Image Pulse Animation */
+@keyframes heroPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 0;
+    }
 }
 
 /* Responsive Design */
@@ -758,7 +808,7 @@ section {
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 5rem;
     }
 
     .hero-subtitle {
@@ -767,6 +817,33 @@ section {
 
     .hero-description {
         font-size: 1rem;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .hero-image::before {
+        width: 250px;
+        height: 250px;
+    }
+    .hero-image img {
+        width: 250px;
+        height: 250px;
     }
 
     .section-title {
@@ -798,6 +875,24 @@ section {
 @media (max-width: 480px) {
     .hero-buttons {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .hero-image::before {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-image img {
+        width: 200px;
+        height: 200px;
     }
 
     .btn {
@@ -808,5 +903,55 @@ section {
     .projects-grid,
     .hobbies-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* About Section */
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    /* Experience Timeline */
+    .timeline-content {
+        padding: 1.5rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Hobbies */
+    .hobby-card {
+        padding: 1.5rem;
+    }
+
+    /* Contact */
+    .contact-form {
+        width: 100%;
+    }
+
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .hero-image::before {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-image img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero .container {
+        gap: 1.5rem;
     }
 }

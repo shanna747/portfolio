@@ -1,0 +1,11 @@
+
+/* Hero Content - keep on left side */
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* Hero Image - keep on right side */
+.hero-image {
+    flex-shrink: 0;
+}

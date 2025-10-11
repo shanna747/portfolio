@@ -252,3 +252,92 @@ window.addEventListener('load', () => {
                     window.performance.timing.navigationStart;
     console.log(`Page loaded in ${loadTime}ms`);
 });
+// Clients Section - Spoke Visualization
+// Create backdrop for popups
+const backdrop = document.createElement('div');
+backdrop.className = 'popup-backdrop';
+document.body.appendChild(backdrop);
+
+// Get all spokes and popups
+const spokes = document.querySelectorAll('.spoke');
+const popups = document.querySelectorAll('.client-popup');
+const closeButtons = document.querySelectorAll('.popup-close');
+
+// Add click handlers to spokes
+spokes.forEach(spoke => {
+    spoke.addEventListener('click', () => {
+        const clientName = spoke.getAttribute('data-client');
+        const popup = document.getElementById(`popup-${clientName}`);
+        
+        if (popup) {
+            // Close any open popups
+            popups.forEach(p => p.classList.remove('active'));
+            
+            // Open clicked popup
+            popup.classList.add('active');
+            backdrop.classList.add('active');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close popup function
+function closePopup() {
+    popups.forEach(popup => popup.classList.remove('active'));
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Add click handlers to close buttons
+closeButtons.forEach(button => {
+    button.addEventListener('click', closePopup);
+});
+
+// Close popup when clicking backdrop
+backdrop.addEventListener('click', closePopup);
+
+// Close popup with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closePopup();
+    }
+});
+
+// Animate spokes on scroll into view
+const spokeContainer = document.querySelector('.spoke-container');
+if (spokeContainer) {
+    const spokeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate spokes appearing
+                const allSpokes = entry.target.querySelectorAll('.spoke');
+                allSpokes.forEach((spoke, index) => {
+                    setTimeout(() => {
+                        spoke.style.opacity = '0';
+                        spoke.style.transform = spoke.style.transform + ' scale(0.5)';
+                        spoke.style.transition = 'all 0.5s ease';
+                        
+                        setTimeout(() => {
+                            spoke.style.opacity = '1';
+                            spoke.style.transform = spoke.style.transform.replace('scale(0.5)', 'scale(1)');
+                        }, 50);
+                    }, index * 150);
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    spokeObserver.observe(spokeContainer);
+}
+
+// Add touch support for mobile
+if ('ontouchstart' in window) {
+    spokes.forEach(spoke => {
+        spoke.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            spoke.click();
+        });
+    });
+}

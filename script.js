@@ -96,59 +96,6 @@ animateElements.forEach(el => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
-
-// Contact form handling
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    // Validate form
-    if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-
-    // In a real application, you would send this data to a server
-    // For now, we'll just show a success message
-    alert('Thank you for your message! I\'ll get back to you soon.');
-
-    // Reset form
-    contactForm.reset();
-
-    // You can integrate with email services like EmailJS, Formspree, or your own backend
-    // Example with EmailJS:
-    /*
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-        from_name: name,
-        from_email: email,
-        subject: subject,
-        message: message
-    }).then(
-        function(response) {
-            alert('Message sent successfully!');
-            contactForm.reset();
-        },
-        function(error) {
-            alert('Failed to send message. Please try again.');
-        }
-    );
-    */
-});
-
 // Add active class to current section in navigation
 const sections = document.querySelectorAll('section[id]');
 

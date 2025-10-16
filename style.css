@@ -836,12 +836,7 @@ section {
     }
 
     .hero-image {
-        grid-column: 1;
-        grid-row: 2;
-        margin: 1rem 0;
-        justify-self: start;
-        width: 200px;
-        height: 200px;
+        display: none;
     }
 
     .hero-image img {
@@ -914,9 +909,7 @@ section {
     }
 
     .hero-image {
-        margin: 1rem 0;
-        width: 150px;
-        height: 150px;
+        display: none;
     }
 
     .hero-image img {
@@ -1012,8 +1005,7 @@ section {
     }
 
     .hero-image {
-        width: 120px;
-        height: 120px;
+        display: none;
     }
 
     .hero .container {
@@ -1048,8 +1040,7 @@ section {
     }
 
     .hero-image {
-        width: 100px;
-        height: 100px;
+        display: none;
     }
 
     .btn {

@@ -338,24 +338,7 @@ section {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 2px;
 }
-
-/* About Section */
-.about {
-    background-color: var(--bg-white);
-}
-
-.about-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-text p {
-    font-size: 1.125rem;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
+/* Skills Section */
 .skills {
     margin-top: 3rem;
 }

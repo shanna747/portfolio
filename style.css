@@ -509,11 +509,29 @@ section {
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: stretch;
+}
+
+.wave-divider {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.wave-divider svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
 }
 
 .t-divider-left,
 .t-divider-right {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .t-divider-left h2,
@@ -1221,6 +1239,25 @@ section {
     .t-divider {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .wave-divider {
+        display: none;
+    }
+
+    .clients-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+    }
+
+    .client-square.large,
+    .client-square.small:nth-of-type(2),
+    .client-square.small:nth-of-type(3),
+    .client-square.small:nth-of-type(4),
+    .client-square.small:nth-of-type(5) {
+        grid-column: 1;
+        grid-row: auto;
     }
 
     .tech-logos-container {

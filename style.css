@@ -1261,7 +1261,19 @@ section {
     }
 
     .tech-logos-container {
-        height: 400px;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .floating-logo {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: auto !important;
+        top: auto !important;
     }
 
     .footer .container {

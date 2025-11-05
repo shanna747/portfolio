@@ -302,6 +302,19 @@ function initFloatingLogos() {
 
     if (logos.length === 0) return;
 
+    // Disable animation on mobile devices
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        console.log('Mobile device detected, disabling logo animation');
+        // Reset logos to static positions
+        logos.forEach(logo => {
+            logo.style.position = 'relative';
+            logo.style.left = 'auto';
+            logo.style.top = 'auto';
+        });
+        return;
+    }
+
     const containerWidth = container.offsetWidth;
     const containerHeight = container.offsetHeight;
     const logoSize = 80; // 5rem = 80px

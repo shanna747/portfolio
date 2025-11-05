@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Professional Portfolio - Shanna Morris",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 5500",
+    "dev": "python3 -m http.server 8080",
+    "serve": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Shanna Morris",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shanna747/portfolio"
+  }
+}

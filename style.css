@@ -129,7 +129,7 @@ html {
     background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     color: white;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: 8rem 0 4rem 0;
     margin-top: 70px;
 }
@@ -561,7 +561,7 @@ section {
 
 /* Logo Scrolling Banner */
 .logo-banner {
-    background-color: #ffffff;
+    background-color: #f8fafc;
     padding: 2rem 0;
     overflow: hidden;
     position: relative;
@@ -1126,6 +1126,36 @@ section {
     gap: 1rem;
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.view-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.view-counter i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.view-counter span {
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+}
+
 .footer-social {
     display: flex;
     gap: 1rem;
@@ -1280,6 +1310,10 @@ section {
     .footer .container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .footer-content {
+        align-items: center;
     }
 }
 

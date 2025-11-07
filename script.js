@@ -199,6 +199,50 @@ window.addEventListener('load', () => {
                     window.performance.timing.navigationStart;
     console.log(`Page loaded in ${loadTime}ms`);
 });
+
+// View Counter
+function initViewCounter() {
+    // Get current view count from localStorage
+    let viewCount = localStorage.getItem('portfolioViews');
+
+    // If no count exists, start at 0
+    if (viewCount === null) {
+        viewCount = 0;
+    }
+
+    // Increment the view count
+    viewCount = parseInt(viewCount) + 1;
+
+    // Save the new count
+    localStorage.setItem('portfolioViews', viewCount);
+
+    // Update the counter display
+    const counterElement = document.getElementById('view-counter');
+    if (counterElement) {
+        // Animate the counter
+        animateCounter(counterElement, viewCount);
+    }
+}
+
+// Animate counter with counting effect
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = Math.ceil(target / 30);
+    const duration = 1000;
+    const stepTime = duration / 30;
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = current.toLocaleString();
+    }, stepTime);
+}
+
+// Initialize view counter when page loads
+window.addEventListener('load', initViewCounter);
 // Clients Section - Spoke Visualization
 // Create backdrop for popups
 const backdrop = document.createElement('div');
